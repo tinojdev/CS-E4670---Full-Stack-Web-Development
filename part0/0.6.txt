@@ -1,0 +1,16 @@
+note over browser:
+
+User fills the form and presses submit
+
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: {"message":"note created"}
+
+note over browser:
+
+Browser adds the created note to the list
+and redraws it without refreshing the page and re-retrieving everything
+
+end note
+
