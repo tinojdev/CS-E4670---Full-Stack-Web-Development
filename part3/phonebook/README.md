@@ -1,1 +1,1 @@
-# This is the frontend onyl project
+# This is the frontend only project
