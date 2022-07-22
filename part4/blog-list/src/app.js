@@ -11,6 +11,7 @@ const usersRouter = require("./controllers/users");
 const app = express();
 const cors = require("cors");
 const loginRouter = require("./controllers/login");
+
 const middleware = require("./middleware");
 
 mongoose.connect(config.MONGO_DB_URI)
@@ -29,6 +30,11 @@ app.use(middleware.userExtractor);
 app.use("/api/users", usersRouter);
 app.use("/api/blogs", blogsRouter);
 app.use("/api/login", loginRouter);
+
+if (process.env.NODE_ENV === "test") {
+    const testingRouter = require("./controllers/test");
+    app.use("/api/testing", testingRouter);
+}
 
 app.listen(config.PORT, () => {
     console.log(`Server running on port ${config.PORT}`);

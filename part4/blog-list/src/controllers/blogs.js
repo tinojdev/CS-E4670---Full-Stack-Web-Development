@@ -66,6 +66,7 @@ blogsRouter.put("/:id", async (request, response) => {
         if (!currentBlog) response.status(404).end();
         
         let updatedBlog = {
+            user: currentBlog.user,
             title: body.title || currentBlog.title,
             author: body.author || currentBlog.author,
             url: body.url || currentBlog.url,
